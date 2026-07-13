@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acompañamiento Estratégico | Ingeniería en Comercio Exterior | Duoc UC</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="¿Pensando en estudiar Ingeniería en Comercio Exterior en Duoc UC? Te orientamos antes de que te matricules. Conversa con mentores sobre becas, mallas y campo laboral.">
+  <meta name="keywords" content="Duoc UC, Comercio Exterior, Ingeniería, Admisión 2026, Gratuidad Chile, Orientación Vocacional, Mentoría Estudiantil">
+  <meta name="author" content="Duoc UC - Acompañamiento Estratégico">
+  
+  <!-- Google Fonts (Outfit Heavy & Inter Regular/SemiBold) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER / NAVIGATION BAR
+       ========================================================================== -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo" aria-label="Duoc UC Logo">
+        <div class="logo-icon"></div>
+        <div class="logo-text">Duoc<span>UC</span></div>
+      </div>
+      <a href="#contacto-orientacion" class="nav-cta">
+        <i class="fa-solid fa-comments"></i> Mentorías 1 a 1
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION (With Port Background and Glassmorphism Form)
+       ========================================================================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Side: Copy Strategy and Hook -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span></span> Acompañamiento Estratégico Exclusivo
+          </div>
+          <h1>
+            <span>Ingeniería en Comercio Exterior</span>
+            No des el paso solo(a)
+          </h1>
+          <p class="hero-hook">
+            <i class="fa-solid fa-compass"></i> Te orientamos antes de que te matricules.
+          </p>
+          <p class="hero-description">
+            Sabemos que elegir tu futuro profesional es una gran decisión. Por eso, antes de que te comprometas con una matrícula, te brindamos asesoría directa, transparente y 100% gratuita con nuestro equipo de mentores.
+          </p>
+          
+          <div class="hero-features">
+            <div class="hero-feature-item">
+              <div class="hero-feature-icon"><i class="fa-solid fa-circle-check fa-lg"></i></div>
+              <p><strong>Mentorías 1 a 1</strong> con docentes del área de Negocios.</p>
+            </div>
+            <div class="hero-feature-item">
+              <div class="hero-feature-icon"><i class="fa-solid fa-circle-check fa-lg"></i></div>
+              <p><strong>Evaluación rápida</strong> de financiamiento y becas estatales (FUAS).</p>
+            </div>
+            <div class="hero-feature-item">
+              <div class="hero-feature-icon"><i class="fa-solid fa-circle-check fa-lg"></i></div>
+              <p><strong>Guía de Empleabilidad</strong> sobre el campo aduanero y logístico.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Side: Conversion Form (Floating Glassmorphism Card) -->
+        <div class="form-card-wrapper" id="contacto-orientacion">
+          
+          <!-- State 1: Form -->
+          <div class="glass-form-container" id="formContainer">
+            <div class="form-header">
+              <h3>Inicia tu Acompañamiento</h3>
+              <p>Completa tus datos para descargar tu Guía Académica y solicitar a tu mentor asignado.</p>
+            </div>
+            
+            <form id="duocForm" novalidate>
+              <!-- Name Input -->
+              <div class="form-group">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="nombre" class="form-input" placeholder="Ej: Juan Pérez González" required>
+                </div>
+                <div class="validation-msg">El nombre es requerido</div>
+              </div>
+              
+              <!-- RUT Input -->
+              <div class="form-group">
+                <label for="rut" class="form-label">RUT</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-id-card"></i>
+                  <input type="text" id="rut" class="form-input" placeholder="12.345.678-9" required>
+                </div>
+                <div class="validation-msg">El RUT ingresado no es válido</div>
+              </div>
+              
+              <!-- Email Input -->
+              <div class="form-group">
+                <label for="correo" class="form-label">Correo Electrónico</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input type="email" id="correo" class="form-input" placeholder="nombre@correo.com" required>
+                </div>
+                <div class="validation-msg">Ingresa un correo válido</div>
+              </div>
+              
+              <!-- School (Liceo) Input -->
+              <div class="form-group">
+                <label for="liceo" class="form-label">Liceo o Colegio de procedencia</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-school"></i>
+                  <input type="text" id="liceo" class="form-input" placeholder="Ej: Liceo A-12 o Colegio San Agustín" required>
+                </div>
+                <div class="validation-msg">Por favor, ingresa tu establecimiento (Liceo / Colegio)</div>
+              </div>
+              
+              <!-- Submit CTA -->
+              <button type="submit" class="btn-submit">
+                <span>Descargar mi Guía y solicitar contacto con un mentor</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              
+              <p class="form-privacy-note">
+                <i class="fa-solid fa-shield-halved"></i> Tus datos están protegidos bajo las políticas de privacidad de Duoc UC.
+              </p>
+            </form>
+          </div>
+          
+          <!-- State 2: Success Message (Hidden by default) -->
+          <div class="glass-form-container success-card" id="successState" style="display: none;">
+            <div class="success-icon-wrapper">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3>¡Gracias, <span id="successUserName">Estudiante</span>!</h3>
+            <p><strong>¡Bienvenido(a) a la comunidad Duoc!</strong> Un asesor de carrera te contactará en las próximas 24 horas para resolver tus dudas.</p>
+            
+            <div class="download-box">
+              <h4><i class="fa-solid fa-file-pdf text-yellow"></i> Tu Guía Académica está lista</h4>
+              <p>Hemos generado tu kit de orientación para Ingeniería en Comercio Exterior.</p>
+              <!-- Enlace de descarga al esquema del PDF en formato markdown local -->
+              <a href="pdf-estructura-guia.md" class="btn-download" download="Estructura-Guia-Orientacion-Duoc.md">
+                <i class="fa-solid fa-download"></i> Descargar Estructura Guía (MD)
+              </a>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EL GANCHO: RESOLUCIÓN ANTES DE MATRICULACIÓN
+       ========================================================================== -->
+  <section class="hook-section section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Tu Futuro sin Incertidumbres</span>
+        <h2 class="section-title">Aclaramos tu camino antes de tomar una decisión</h2>
+      </div>
+      
+      <div class="hook-grid">
+        <!-- Card 1 -->
+        <div class="hook-card">
+          <div class="hook-card-icon"><i class="fa-solid fa-globe"></i></div>
+          <h4>¿Qué hace un Ingeniero en Comercio Exterior?</h4>
+          <p>Te enseñamos la realidad laboral del cargo: gestión de aduanas, logística internacional, cadenas de suministro globales y la toma de decisiones comerciales estratégicas en mercados internacionales.</p>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="hook-card">
+          <div class="hook-card-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+          <h4>Financiamiento, Becas y Gratuidad</h4>
+          <p>Analizamos tu situación antes de matricularte. Te explicamos los alcances de la Gratuidad (Duoc UC cuenta con el beneficio al estar acreditado), becas internas y beneficios ministeriales.</p>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="hook-card">
+          <div class="hook-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h4>Malla Curricular y Exigencia de Inglés</h4>
+          <p>Comprende a fondo las materias que cursarás. Desde finanzas internacionales hasta legislación aduanera, incluyendo el plan de inglés integrado que te convertirá en un profesional bilingüe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HUMANIZATION: TU EQUIPO DE ACOMPAÑAMIENTO
+       ========================================================================== -->
+  <section class="team-section section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">No Estás Solo en Esto</span>
+        <h2 class="section-title">Tu Equipo de Acompañamiento</h2>
+      </div>
+      
+      <div class="team-grid">
+        <!-- Mentor 1 -->
+        <div class="team-card">
+          <div class="avatar-wrapper">
+            <div class="avatar-img">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+          </div>
+          <span class="role-badge">Mentor de Carrera</span>
+          <h4>Ignacio Silva</h4>
+          <div class="specialty">Docente y Experto en Logística Global</div>
+          <p>Te contará de primera fuente cómo funciona el día a día en los puertos, aduanas e importaciones, y cómo proyectar tu carrera en empresas globales.</p>
+        </div>
+        
+        <!-- Mentor 2 -->
+        <div class="team-card">
+          <div class="avatar-wrapper">
+            <div class="avatar-img">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+          </div>
+          <span class="role-badge">Asesora de Financiamiento</span>
+          <h4>Camila Martínez</h4>
+          <div class="specialty">Especialista en Beneficios Estatales</div>
+          <p>Su misión es ayudarte a navegar por el FUAS. Te guiará para postular a la Gratuidad, créditos y becas internas que ofrece Duoc UC.</p>
+        </div>
+        
+        <!-- Mentor 3 -->
+        <div class="team-card">
+          <div class="avatar-wrapper">
+            <div class="avatar-img">
+              <i class="fa-solid fa-clipboard-user"></i>
+            </div>
+          </div>
+          <span class="role-badge">Consejera de Admisión</span>
+          <h4>Valentina Soto</h4>
+          <div class="specialty">Coordinadora de Admisión</div>
+          <p>Tu punto de contacto para todo el proceso administrativo. Te indicará los plazos de inscripción, documentos requeridos y cómo agendar tu matrícula.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOW IT WORKS (TIMELINE)
+       ========================================================================== -->
+  <section class="steps-section section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">El Proceso de Orientación</span>
+        <h2 class="section-title">¿Cómo funciona el acompañamiento?</h2>
+      </div>
+      
+      <div class="steps-timeline">
+        <!-- Step 1 -->
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h4>Envías tu Solicitud</h4>
+          <p>Completas el formulario, indicando tu duda más urgente.</p>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h4>Descargas la Guía</h4>
+          <p>Obtienes acceso inmediato al folleto con la malla y campo laboral.</p>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h4>Conversas con tu Mentor</h4>
+          <p>Te contactamos en menos de 24 horas para resolver tus dudas gratis.</p>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <h4>Decides con Seguridad</h4>
+          <p>Con toda la información en mano, estás listo(a) para matricularte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER INSTITUCIONAL REPLICADO (Conectividad Oficial Duoc UC)
+       ========================================================================== -->
+  <footer class="footer-institutional">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Col 1: Contáctanos -->
+        <div class="footer-col">
+          <h4>Contáctanos</h4>
+          <div class="footer-contact-info">
+            <p><i class="fa-solid fa-location-dot"></i> Avenida Eliodoro Yáñez 1595, Providencia, Santiago.</p>
+            <p><i class="fa-solid fa-envelope"></i> <a href="mailto:admision@duoc.cl">admision@duoc.cl</a></p>
+            <p><i class="fa-solid fa-globe"></i> <a href="https://www.duoc.cl" target="_blank" rel="noopener">www.duoc.cl</a></p>
+          </div>
+        </div>
+        
+        <!-- Col 2: Mesa de Servicios -->
+        <div class="footer-col">
+          <h4>Mesa de Servicios</h4>
+          <div class="footer-contact-info">
+            <p><i class="fa-solid fa-phone"></i> <strong>Call Center:</strong><br>800 200 3862</p>
+            <p><i class="fa-solid fa-clock"></i> <strong>Horarios de Atención:</strong><br>Lunes a Viernes: 8:30 a 20:00 hrs.<br>Sábados: 9:00 a 14:00 hrs.</p>
+          </div>
+        </div>
+        
+        <!-- Col 3: Redes Sociales (Enlaces Oficiales Requeridos) -->
+        <div class="footer-col">
+          <h4>Redes Sociales</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.85rem;">Sigue a nuestra comunidad y entérate de las actividades estudiantiles.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/DuocUC" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/duocuc_oficial/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/duoc-uc/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/user/DuocUCtv" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <!-- Col 4: Sello Acreditación -->
+        <div class="footer-col">
+          <h4>Acreditación</h4>
+          <div class="acreditation-box">
+            <div class="acreditation-title">DUOC UC ACREDITADO</div>
+            <div class="acreditation-years">7 Años</div>
+            <div class="acreditation-text">
+              Desde Noviembre 2024 hasta Noviembre 2031<br>
+              <strong>Áreas:</strong> Gestión Institucional y Docencia de Pregrado.
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Duoc UC. Todos los derechos reservados.</p>
+        <div class="footer-legal-links">
+          <a href="#">Términos de Uso</a>
+          <a href="#">Políticas de Privacidad</a>
+        </div>
+      </div>
+      
+    </div>
+  </footer>
+
+  <!-- Custom Logic Script (Separate file) -->
+  <script src="script.js"></script>
+</body>
+</html>

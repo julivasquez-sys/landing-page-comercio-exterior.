@@ -1,0 +1,7 @@
+# Ignorar archivos locales y scripts de desarrollo en el contenedor final
+.git
+.dockerignore
+Dockerfile
+google-sheets-script.gs
+server.ps1
+*.md
