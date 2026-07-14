@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * GUÍA DE INTEGRACIÓN CON GOOGLE SHEETS (Para Desarrolladores / Copywriters)
+ * GUÍA DE INTEGRACIÓN CON GOOGLE SHEETS
  * ==========================================================================
  * 
  * Para enviar los datos capturados en este formulario directamente a una 
@@ -10,43 +10,16 @@
  * 1. PREPARACIÓN EN GOOGLE SHEETS:
  *    a. Crea una nueva hoja de cálculo en Google Drive.
  *    b. En la primera fila, escribe exactamente las cabeceras de columna:
- *       Fecha | Nombre | RUT | Correo | Liceo
+ *       Fecha | Nombre | RUT | Correo | Telefono | Consulta_Especifica
  * 
  * 2. CONFIGURACIÓN DEL SCRIPT DE GOOGLE APPS:
  *    a. Ve al menú superior: Extensiones > Apps Script.
- *    b. Borra el código existente y pega la siguiente función:
- * 
- *       function doPost(e) {
- *         try {
- *           var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
- *           var data = JSON.parse(e.postData.contents);
- *           
- *           // Insertar fila con fecha de registro y los datos del formulario (4 campos)
- *           sheet.appendRow([
- *             new Date(),
- *             data.nombre,
- *             data.rut,
- *             data.correo,
- *             data.liceo
- *           ]);
- *           
- *           return ContentService.createTextOutput(JSON.stringify({
- *             "status": "success",
- *             "message": "Datos guardados exitosamente"
- *           })).setMimeType(ContentService.MimeType.JSON);
- *           
- *         } catch(error) {
- *           return ContentService.createTextOutput(JSON.stringify({
- *             "status": "error",
- *             "message": error.toString()
- *           })).setMimeType(ContentService.MimeType.JSON);
- *         }
- *       }
+ *    b. Borra el código existente y pega la lógica del archivo google-sheets-script.gs.
  * 
  * 3. DESPLIEGUE DEL APPS SCRIPT:
  *    a. Haz clic en "Implementar" (Deploy) > "Nueva implementación".
  *    b. Selecciona tipo: "Aplicación web".
- *    c. En "Quién tiene acceso", selecciona "Cualquiera" (indispensable para peticiones públicas desde la web).
+ *    c. En "Quién tiene acceso", selecciona "Cualquiera" (indispensable para peticiones públicas).
  *    d. Copia la URL de la aplicación web que te proporciona.
  * 
  * 4. CONEXIÓN EN ESTE ARCHIVO:
@@ -54,7 +27,8 @@
  */
 
 // Pega aquí la URL de tu aplicación web de Google Apps Script cuando esté lista.
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyMyZz0oUqmb3CGap6RnmmSktH1uuTOf2rJot6o2mlxNVxTQ9ctwGdFn01KX_Eh8Rmq/exec';
+const GOOGLE_SHEET_URL = ''; 
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('duocForm');
   const rutInput = document.getElementById('rut');
@@ -64,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Elementos del formulario para validaciones en tiempo real
   const nombreInput = document.getElementById('nombre');
   const correoInput = document.getElementById('correo');
-  const liceoInput = document.getElementById('liceo');
+  const telefonoInput = document.getElementById('telefono');
+  const consultaSelect = document.getElementById('consulta');
   
   // ==========================================================================
   // VALIDADOR Y FORMATEADOR DE RUT CHILENO (Algoritmo Módulo 11)
@@ -157,11 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  liceoInput.addEventListener('blur', () => {
-    if (liceoInput.value.trim().length < 3) {
-      setFieldError(liceoInput, 'Por favor, ingresa tu establecimiento de enseñanza media (Liceo / Colegio)');
+  telefonoInput.addEventListener('input', (e) => {
+    // Solo permitir números y signo +
+    e.target.value = e.target.value.replace(/[^0-9+]/g, '');
+  });
+
+  telefonoInput.addEventListener('blur', () => {
+    const rawVal = telefonoInput.value.replace(/\+/g, '');
+    if (rawVal.length < 8) {
+      setFieldError(telefonoInput, 'Ingresa un teléfono celular válido (mínimo 8 dígitos)');
     } else {
-      setFieldSuccess(liceoInput);
+      setFieldSuccess(telefonoInput);
     }
   });
 
@@ -191,33 +172,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const isRutValid = validateRutInput();
     const isNombreValid = nombreInput.value.trim().length >= 5;
     const isCorreoValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correoInput.value.trim());
-    const isLiceoValid = liceoInput.value.trim().length >= 3;
+    const isTelefonoValid = telefonoInput.value.replace(/\+/g, '').length >= 8;
     
     if (!isNombreValid) setFieldError(nombreInput, 'Por favor, ingresa tu nombre completo');
     if (!isCorreoValid) setFieldError(correoInput, 'Ingresa un correo electrónico válido');
-    if (!isLiceoValid) setFieldError(liceoInput, 'Por favor, ingresa tu establecimiento (Liceo / Colegio)');
+    if (!isTelefonoValid) setFieldError(telefonoInput, 'Ingresa un teléfono celular válido');
     
-    if (!isRutValid || !isNombreValid || !isCorreoValid || !isLiceoValid) {
+    if (!isRutValid || !isNombreValid || !isCorreoValid || !isTelefonoValid) {
       // Enfocar el primer elemento con error
       const firstError = form.querySelector('.form-group.error .form-input');
       if (firstError) firstError.focus();
       return;
     }
     
-    // Cambiar estado del botón a "Enviando..."
+    // Cambiar estado del botón a "Procesando..."
     const submitBtn = form.querySelector('.btn-submit');
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span>Procesando...</span>';
     
-    // Estructura de datos recopilada (4 campos requeridos)
+    // Estructura de datos recopilada (5 campos del diseño original)
     const formData = {
       nombre: nombreInput.value.trim(),
       rut: rutInput.value.trim(),
       correo: correoInput.value.trim(),
-      liceo: liceoInput.value.trim()
+      telefono: telefonoInput.value.trim(),
+      consulta: consultaSelect.value
     };
 
-    console.log('Enviando datos de registro (4 campos):', formData);
+    console.log('Enviando datos de registro:', formData);
 
     // Integración de envío a Google Sheets
     if (GOOGLE_SHEET_URL) {
@@ -262,6 +244,19 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           successState.style.opacity = '1';
         }, 50);
+
+        // Habilitar y descargar automáticamente el archivo guia_final.pdf
+        try {
+          const downloadLink = document.createElement('a');
+          downloadLink.href = 'guia_final.pdf';
+          downloadLink.download = 'guia_final.pdf';
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+        } catch (downloadError) {
+          console.error('Error al iniciar la descarga automática de guia_final.pdf:', downloadError);
+        }
+
       }, 300);
     }, 1000);
   });

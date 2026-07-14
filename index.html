@@ -10,12 +10,12 @@
   <meta name="keywords" content="Duoc UC, Comercio Exterior, Ingeniería, Admisión 2026, Gratuidad Chile, Orientación Vocacional, Mentoría Estudiantil">
   <meta name="author" content="Duoc UC - Acompañamiento Estratégico">
   
-  <!-- Google Fonts (Outfit Heavy & Inter Regular/SemiBold) -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome for Icons -->
+  <!-- FontAwesome for Premium Vector Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom Stylesheet -->
@@ -39,7 +39,7 @@
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION (With Port Background and Glassmorphism Form)
+       HERO SECTION (With Grid and Glassmorphism Form)
        ========================================================================== -->
   <section class="hero">
     <div class="container">
@@ -64,20 +64,20 @@
           <div class="hero-features">
             <div class="hero-feature-item">
               <div class="hero-feature-icon"><i class="fa-solid fa-circle-check fa-lg"></i></div>
-              <p><strong>Mentorías 1 a 1</strong> con docentes del área de Negocios.</p>
+              <p>Mentorías 1-a-1 con docentes del área de Negocios.</p>
             </div>
             <div class="hero-feature-item">
               <div class="hero-feature-icon"><i class="fa-solid fa-circle-check fa-lg"></i></div>
-              <p><strong>Evaluación rápida</strong> de financiamiento y becas estatales (FUAS).</p>
+              <p>Evaluación rápida de financiamiento y becas estatales (FUAS).</p>
             </div>
             <div class="hero-feature-item">
               <div class="hero-feature-icon"><i class="fa-solid fa-circle-check fa-lg"></i></div>
-              <p><strong>Guía de Empleabilidad</strong> sobre el campo aduanero y logístico.</p>
+              <p>Guía de Empleabilidad sobre el campo aduanero y logístico.</p>
             </div>
           </div>
         </div>
         
-        <!-- Right Side: Conversion Form (Floating Glassmorphism Card) -->
+        <!-- Right Side: Conversion Form -->
         <div class="form-card-wrapper" id="contacto-orientacion">
           
           <!-- State 1: Form -->
@@ -118,14 +118,29 @@
                 <div class="validation-msg">Ingresa un correo válido</div>
               </div>
               
-              <!-- School (Liceo) Input -->
+              <!-- Phone Input -->
               <div class="form-group">
-                <label for="liceo" class="form-label">Liceo o Colegio de procedencia</label>
+                <label for="telefono" class="form-label">Teléfono / WhatsApp</label>
                 <div class="input-wrapper">
-                  <i class="fa-solid fa-school"></i>
-                  <input type="text" id="liceo" class="form-input" placeholder="Ej: Liceo A-12 o Colegio San Agustín" required>
+                  <i class="fa-solid fa-phone"></i>
+                  <input type="tel" id="telefono" class="form-input" placeholder="Ej: +56 9 1234 5678" required>
                 </div>
-                <div class="validation-msg">Por favor, ingresa tu establecimiento (Liceo / Colegio)</div>
+                <div class="validation-msg">El número debe tener al menos 8 dígitos</div>
+              </div>
+              
+              <!-- Dropdown Question -->
+              <div class="form-group">
+                <label for="consulta" class="form-label">¿Necesitas resolver una duda específica antes de matricularte?</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-question-circle"></i>
+                  <select id="consulta" class="form-input">
+                    <option value="Sí, quiero conversar con un Mentor de Carrera">Sí, quiero conversar con un Mentor de Carrera</option>
+                    <option value="Tengo dudas sobre Becas, Financiamiento y Gratuidad">Tengo dudas sobre Becas, Financiamiento y Gratuidad</option>
+                    <option value="Quiero conocer la malla curricular y salidas laborales">Quiero conocer la malla curricular y salidas laborales</option>
+                    <option value="Tengo dudas sobre los requisitos y plazos de Admisión">Tengo dudas sobre los requisitos y plazos de Admisión</option>
+                    <option value="No, solo quiero descargar la Guía de la carrera">No, solo quiero descargar la Guía de la carrera</option>
+                  </select>
+                </div>
               </div>
               
               <!-- Submit CTA -->
@@ -151,9 +166,8 @@
             <div class="download-box">
               <h4><i class="fa-solid fa-file-pdf text-yellow"></i> Tu Guía Académica está lista</h4>
               <p>Hemos generado tu kit de orientación para Ingeniería en Comercio Exterior.</p>
-              <!-- Enlace de descarga al esquema del PDF en formato markdown local -->
-              <a href="pdf-estructura-guia.md" class="btn-download" download="Estructura-Guia-Orientacion-Duoc.md">
-                <i class="fa-solid fa-download"></i> Descargar Estructura Guía (MD)
+              <a href="guia_final.pdf" class="btn-download" download="guia_final.pdf">
+                <i class="fa-solid fa-download"></i> Descargar Guía PDF
               </a>
             </div>
           </div>
@@ -295,7 +309,7 @@
   </section>
 
   <!-- ==========================================================================
-       FOOTER INSTITUCIONAL REPLICADO (Conectividad Oficial Duoc UC)
+       FOOTER INSTITUCIONAL REPLICADO
        ========================================================================== -->
   <footer class="footer-institutional">
     <div class="container">
@@ -307,7 +321,7 @@
           <div class="footer-contact-info">
             <p><i class="fa-solid fa-location-dot"></i> Avenida Eliodoro Yáñez 1595, Providencia, Santiago.</p>
             <p><i class="fa-solid fa-envelope"></i> <a href="mailto:admision@duoc.cl">admision@duoc.cl</a></p>
-            <p><i class="fa-solid fa-globe"></i> <a href="https://www.duoc.cl" target="_blank" rel="noopener">www.duoc.cl</a></p>
+            <p><i class="fa-solid fa-globe"></i> <a href="https://www.duoc.cl" target="_blank">www.duoc.cl</a></p>
           </div>
         </div>
         
@@ -320,15 +334,15 @@
           </div>
         </div>
         
-        <!-- Col 3: Redes Sociales (Enlaces Oficiales Requeridos) -->
+        <!-- Col 3: Redes Sociales -->
         <div class="footer-col">
           <h4>Redes Sociales</h4>
           <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.85rem;">Sigue a nuestra comunidad y entérate de las actividades estudiantiles.</p>
           <div class="social-links">
-            <a href="https://www.facebook.com/DuocUC" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/duocuc_oficial/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/school/duoc-uc/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://www.youtube.com/user/DuocUCtv" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/DuocUC" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/duocuc_oficial" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/duoc-uc" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/user/DuocUCtv" target="_blank" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
         
@@ -359,7 +373,7 @@
     </div>
   </footer>
 
-  <!-- Custom Logic Script (Separate file) -->
+  <!-- Custom Logic Script -->
   <script src="script.js"></script>
 </body>
 </html>

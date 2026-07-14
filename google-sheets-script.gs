@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * GOOGLE APPS SCRIPT - CONEXIÓN CON FORMULARIO DUOC UC (4 CAMPOS)
+ * GOOGLE APPS SCRIPT - CONEXIÓN CON FORMULARIO DUOC UC (5 CAMPOS ORIGINALES)
  * ==========================================================================
  * 
  * Este archivo contiene la lógica necesaria para recibir los datos de la
@@ -13,7 +13,8 @@
  *    B1: Nombre
  *    C1: RUT
  *    D1: Correo
- *    E1: Liceo
+ *    E1: Telefono
+ *    F1: Consulta_Especifica
  * 3. En el menú superior de la hoja, ve a: Extensiones > Apps Script.
  * 4. Pega todo el contenido de este archivo en el editor de Apps Script (reemplaza cualquier código existente).
  * 5. Guarda el proyecto de script haciendo clic en el icono del disco (Guardar).
@@ -57,13 +58,14 @@ function doPost(e) {
     // Formatear la fecha actual de Chile
     var dateString = Utilities.formatDate(new Date(), "GMT-4", "yyyy-MM-dd HH:mm:ss");
     
-    // Insertar una nueva fila al final con los 4 datos del formulario
+    // Insertar una nueva fila al final con los 5 datos del formulario original
     sheet.appendRow([
       dateString,
       data.nombre || "",
       data.rut || "",
       data.correo || "",
-      data.liceo || ""
+      data.telefono || "",
+      data.consulta || ""
     ]);
     
     // Retornar respuesta de éxito en formato JSON

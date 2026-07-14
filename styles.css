@@ -1,16 +1,16 @@
-/* ==========================================================================
-   TIPOGRAFÍA E IMPORTACIONES (Estilo Bazar - Rediseño Crítico Heavy)
+﻿/* ==========================================================================
+   DESIGN SYSTEM & VARIABLES - DUOC UC LANDING PAGE
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@900&family=Inter:wght@400;600&display=swap');
-
 :root {
   /* Colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #121212;
+  --bg-primary: #121212;
+  --bg-secondary: #1a1a1a;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card-hover: rgba(255, 255, 255, 0.08);
   
-  --primary: #ffcc00;       /* Amarillo Duoc */
-  --primary-hover: #e6b800; /* Amarillo Hover */
-  --primary-glow: rgba(255, 204, 0, 0.25);
+  --primary: #ffcc00;       /* Duoc Institutional Yellow */
+  --primary-hover: #e6b800; /* Darker Yellow for Hover */
+  --primary-glow: rgba(255, 204, 0, 0.15);
   
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
@@ -23,21 +23,21 @@
   --border-focus: rgba(255, 204, 0, 0.5);
   
   /* Fonts */
-  --font-title: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-title: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
   /* Layout */
   --container-width: 1200px;
-  --border-radius-lg: 24px;   /* Formulario */
-  --border-radius-md: 20px;   /* Tarjetas */
-  --border-radius-sm: 12px;   /* Botón CTA e Inputs */
+  --border-radius-lg: 24px;
+  --border-radius-md: 16px;
+  --border-radius-sm: 8px;
   
   /* Transitions */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==========================================================================
-   BASE STYLES & RESET (Glowing Dark)
+   BASE STYLES & RESET
    ========================================================================== */
 * {
   box-sizing: border-box;
@@ -51,24 +51,23 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  background: #1a1a1a; /* Estricto: Fondo #1a1a1a */
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
   color: var(--text-primary);
+  line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Scrollbar */
+/* Scrollbar customization */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #242424;
+  background: var(--bg-secondary);
   border: 2px solid var(--bg-primary);
   border-radius: 10px;
 }
@@ -76,42 +75,11 @@ body {
   background: var(--primary);
 }
 
-/* TÍTULOS HEAVY MASIVOS CON INTERLINEADO ESTRICTO (Outfit 900, line-height: 1, letter-spacing: -2px) */
+/* Typography */
 h1, h2, h3, h4 {
-  font-family: 'Outfit', sans-serif; /* Estricto: Outfit */
-  font-weight: 900; /* Estricto: peso 900 */
-  line-height: 1; /* Estricto: line-height: 1 */
-  letter-spacing: -2px; /* Estricto: letter-spacing: -2px */
-  text-transform: uppercase;
-}
-
-h1 {
-  font-size: 4.8rem;
-}
-
-h2 {
-  font-size: 3.2rem;
-}
-
-h3 {
-  font-size: 2.2rem;
-}
-
-h4 {
-  font-size: 1.6rem;
-  letter-spacing: -1px;
-}
-
-p {
-  font-family: 'Inter', sans-serif; /* Estricto: Inter */
-  font-weight: 400; /* pesos 400-600 */
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-strong {
-  font-weight: 600; /* pesos 400-600 */
-  color: var(--text-primary);
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 a {
@@ -144,7 +112,7 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(26, 26, 26, 0.8);
+  background: rgba(18, 18, 18, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -183,10 +151,10 @@ a {
 }
 
 .logo-text {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 900;
-  letter-spacing: -1px;
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .logo-text span {
@@ -197,37 +165,29 @@ a {
 .nav-cta {
   background: transparent;
   color: var(--primary);
-  border: 2px solid var(--primary);
-  padding: 10px 22px;
-  border-radius: 12px;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 900;
-  font-size: 0.95rem;
+  border: 1.5px solid var(--primary);
+  padding: 8px 18px;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: var(--transition-smooth);
 }
 
 .nav-cta:hover {
   background: var(--primary);
-  color: #000000;
+  color: var(--bg-primary);
   box-shadow: 0 0 15px var(--primary-glow);
 }
 
-.nav-cta:active {
-  transform: scale(0.96);
-}
-
 /* ==========================================================================
-   HERO SECTION (Overlay Estricto: background-image con linear-gradient)
+   HERO SECTION
    ========================================================================== */
 .hero {
-  padding: 200px 0 120px 0;
-  /* Estricto: background-image con overlay linear-gradient(to bottom, rgba(26,26,26,0.7), rgba(26,26,26,1)) */
-  background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 1)), 
-                    url('puerto-contenedores.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  padding: 160px 0 80px 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 204, 0, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 10% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
   position: relative;
 }
 
@@ -242,15 +202,14 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 204, 0, 0.15);
-  border: 1px solid rgba(255, 204, 0, 0.25);
+  background: rgba(255, 204, 0, 0.1);
+  border: 1px solid rgba(255, 204, 0, 0.2);
   color: var(--primary);
   padding: 6px 14px;
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 24px;
-  text-transform: uppercase;
 }
 
 .hero-badge span {
@@ -263,26 +222,32 @@ a {
   animation: pulse 1.5s infinite alternate;
 }
 
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
 .hero-content h1 span {
   display: block;
-  font-size: 1.85rem;
-  font-weight: 600;
-  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-secondary);
   margin-bottom: 8px;
   letter-spacing: 0px;
 }
 
 .hero-hook {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-top: 24px;
+  color: var(--primary);
   margin-bottom: 16px;
 }
 
 .hero-description {
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 32px;
   max-width: 580px;
 }
@@ -291,6 +256,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 40px;
 }
 
 .hero-feature-item {
@@ -306,21 +272,33 @@ a {
 }
 
 /* ==========================================================================
-   GLASSMORPHISM FORM CONTAINER (Estricto Glowing Dark)
+   GLASSMORPHISM FORM CONTAINER
    ========================================================================== */
 .form-card-wrapper {
   position: relative;
 }
 
+/* Decorative glow behind the card */
+.form-card-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
+  left: -20px;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .glass-form-container {
-  /* Estricto: background, border, border-radius: 24px, box-shadow */
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  background: rgba(26, 26, 26, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
   padding: 40px 32px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .form-header {
@@ -329,13 +307,13 @@ a {
 }
 
 .form-header h3 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   margin-bottom: 8px;
 }
 
 .form-header p {
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .form-group {
@@ -349,6 +327,7 @@ a {
   font-weight: 600;
   color: var(--text-secondary);
   margin-bottom: 8px;
+  transition: var(--transition-smooth);
 }
 
 .input-wrapper {
@@ -372,8 +351,8 @@ a {
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   padding: 14px 16px 14px 44px;
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
   font-size: 0.95rem;
   transition: var(--transition-smooth);
 }
@@ -398,7 +377,7 @@ select.form-input {
   color: var(--primary);
 }
 
-/* Validaciones */
+/* Validation styling */
 .form-group.success .form-input {
   border-color: var(--accent-success);
 }
@@ -417,35 +396,34 @@ select.form-input {
   display: block;
 }
 
-/* BOTÓN CTA (Estricto: Amarillo #ffcc00, texto negro, peso 800, padding 20px 40px, border-radius 12px) */
 .btn-submit {
   width: 100%;
-  background: #ffcc00; /* Estricto: Amarillo Duoc */
-  color: #000000; /* Estricto: texto negro */
-  font-weight: 800; /* Estricto: font-weight 800 */
-  padding: 20px 40px; /* Estricto: padding 20px 40px */
-  border-radius: 12px; /* Estricto: border-radius 12px */
-  
+  background: var(--primary);
+  color: var(--bg-primary);
   border: none;
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.05rem;
+  padding: 16px 24px;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.2);
-  margin-top: 10px;
+  transition: var(--transition-smooth);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.2);
+  margin-top: 10px;
 }
 
 .btn-submit:hover {
-  background-color: var(--primary-hover);
+  background: var(--primary-hover);
+  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 204, 0, 0.4);
 }
 
 .btn-submit:active {
-  transform: scale(0.96);
+  transform: translateY(0);
 }
 
 .form-privacy-note {
@@ -472,12 +450,13 @@ select.form-input {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin: 0 auto 24px auto;
+  box-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
 }
 
 .success-card h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 16px;
   color: var(--primary);
 }
@@ -489,7 +468,7 @@ select.form-input {
 }
 
 .download-box {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px dashed var(--border-color);
   padding: 24px;
   border-radius: var(--border-radius-md);
@@ -497,7 +476,7 @@ select.form-input {
 }
 
 .download-box h4 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-bottom: 8px;
 }
 
@@ -508,27 +487,22 @@ select.form-input {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 0.95rem;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
   margin-top: 12px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: var(--transition-smooth);
 }
 
 .btn-download:hover {
   background: var(--primary);
-  color: #000000;
+  color: var(--bg-primary);
   border-color: var(--primary);
 }
 
-.btn-download:active {
-  transform: scale(0.96);
-}
-
 /* ==========================================================================
-   EL GANCHO (Tarjetas Premium de 20px redondeadas)
+   EL GANCHO: ORIENTACIÓN PRE-MATRÍCULA
    ========================================================================== */
 .hook-section {
   background-color: var(--bg-secondary);
@@ -543,15 +517,16 @@ select.form-input {
 .section-subtitle {
   color: var(--primary);
   text-transform: uppercase;
-  font-size: 0.9rem;
-  font-weight: 900;
-  letter-spacing: 1px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
   margin-bottom: 8px;
   display: block;
 }
 
 .section-title {
-  font-size: 2.85rem;
+  font-size: 2.25rem;
+  letter-spacing: -0.5px;
 }
 
 .hook-grid {
@@ -561,11 +536,10 @@ select.form-input {
 }
 
 .hook-card {
-  background: rgba(255, 255, 255, 0.01);
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 20px; /* Estricto: border-radius 20px */
+  border-radius: var(--border-radius-md);
   padding: 36px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: var(--transition-smooth);
   height: 100%;
   display: flex;
@@ -573,7 +547,7 @@ select.form-input {
 }
 
 .hook-card:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-card-hover);
   transform: translateY(-8px);
   border-color: rgba(255, 204, 0, 0.3);
 }
@@ -584,7 +558,7 @@ select.form-input {
   background: rgba(255, 204, 0, 0.08);
   border: 1px solid rgba(255, 204, 0, 0.2);
   color: var(--primary);
-  border-radius: 12px;
+  border-radius: var(--border-radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -593,18 +567,24 @@ select.form-input {
 }
 
 .hook-card h4 {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   margin-bottom: 12px;
+  font-family: var(--font-title);
 }
 
 .hook-card p {
+  color: var(--text-secondary);
   font-size: 0.95rem;
   flex-grow: 1;
 }
 
 /* ==========================================================================
-   TU EQUIPO DE ACOMPAÑAMIENTO (Tarjetas Premium de 20px redondeadas)
+   TU EQUIPO DE ACOMPAÑAMIENTO
    ========================================================================== */
+.team-section {
+  position: relative;
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -612,12 +592,11 @@ select.form-input {
 }
 
 .team-card {
-  background: rgba(255, 255, 255, 0.01);
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 20px; /* Estricto: border-radius 20px */
-  padding: 40px 32px;
+  border-radius: var(--border-radius-md);
+  padding: 32px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
@@ -637,9 +616,8 @@ select.form-input {
 }
 
 .team-card:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-card-hover);
   transform: translateY(-6px);
-  border-color: rgba(255, 204, 0, 0.2);
 }
 
 .team-card:hover::after {
@@ -664,9 +642,17 @@ select.form-input {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Outfit', sans-serif;
-  font-size: 2rem;
+  font-family: var(--font-title);
+  font-size: 1.75rem;
+  font-weight: 700;
   color: var(--primary);
+  overflow: hidden;
+}
+
+.avatar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .role-badge {
@@ -682,7 +668,7 @@ select.form-input {
 }
 
 .team-card h4 {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   margin-bottom: 4px;
 }
 
@@ -694,14 +680,15 @@ select.form-input {
 }
 
 .team-card p {
-  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 /* ==========================================================================
-   PROCESO / TIMELINE
+   PROCESO / INTERACTIVO (CÓMO FUNCIONA)
    ========================================================================== */
 .steps-section {
-  background-color: var(--bg-secondary);
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
 .steps-timeline {
@@ -734,15 +721,15 @@ select.form-input {
 .step-number {
   width: 60px;
   height: 60px;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   border: 2px solid var(--border-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--text-secondary);
   margin: 0 auto 20px auto;
   transition: var(--transition-smooth);
@@ -755,7 +742,7 @@ select.form-input {
 }
 
 .step-item h4 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 8px;
 }
 
@@ -767,14 +754,14 @@ select.form-input {
 }
 
 /* ==========================================================================
-   FOOTER INSTITUCIONAL REPLICADO (Conectividad Oficial Duoc UC)
+   FOOTER INSTITUCIONAL REPLICADO
    ========================================================================== */
 .footer-institutional {
-  background-color: #111111;
+  background-color: #0b0b0b;
   color: var(--text-primary);
   border-top: 1px solid var(--border-color);
   padding: 80px 0 30px 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .footer-grid {
@@ -785,8 +772,8 @@ select.form-input {
 }
 
 .footer-col h4 {
-  font-size: 1.1rem;
-  font-weight: 900;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--primary);
   margin-bottom: 24px;
   text-transform: uppercase;
@@ -863,22 +850,22 @@ select.form-input {
 
 .social-btn:hover {
   background: var(--primary);
-  color: #000000;
+  color: var(--bg-primary);
   border-color: var(--primary);
   transform: translateY(-3px);
 }
 
-/* Sello Acreditación */
+/* Sello Acreditación Duoc */
 .acreditation-box {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: var(--border-radius-sm);
   padding: 16px;
   text-align: center;
 }
 
 .acreditation-title {
-  font-weight: 900;
+  font-weight: 800;
   font-size: 0.85rem;
   color: var(--primary);
   margin-bottom: 6px;
@@ -891,8 +878,8 @@ select.form-input {
 }
 
 .acreditation-years {
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--text-primary);
   margin: 6px 0;
 }
@@ -939,8 +926,9 @@ select.form-input {
     gap: 32px;
   }
   
-  h1 { font-size: 3.8rem; }
-  h2 { font-size: 2.6rem; }
+  .hero-content h1 {
+    font-size: 3rem;
+  }
   
   .hook-grid, .team-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -954,7 +942,7 @@ select.form-input {
   }
   
   .hero {
-    padding: 150px 0 60px 0;
+    padding: 130px 0 60px 0;
   }
   
   .hero-grid {
@@ -1001,8 +989,9 @@ select.form-input {
     font-size: 14px;
   }
   
-  h1 { font-size: 2.8rem; }
-  h2 { font-size: 2rem; }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
   
   .glass-form-container {
     padding: 30px 20px;
