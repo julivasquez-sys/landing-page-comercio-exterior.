@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    DESIGN SYSTEM & VARIABLES - DUOC UC LANDING PAGE
    ========================================================================== */
 :root {
@@ -186,8 +186,9 @@ a {
    ========================================================================== */
 .hero {
   padding: 160px 0 80px 0;
-  background: radial-gradient(circle at 80% 20%, rgba(255, 204, 0, 0.08) 0%, transparent 50%),
-              radial-gradient(circle at 10% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+  background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 1)), url('puerto-contenedores.png');
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 
