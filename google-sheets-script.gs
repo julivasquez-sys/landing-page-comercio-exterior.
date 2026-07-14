@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * GOOGLE APPS SCRIPT - CONEXIÓN CON FORMULARIO DUOC UC (5 CAMPOS ORIGINALES)
+ * GOOGLE APPS SCRIPT - CONEXIÓN CON FORMULARIO DUOC UC (CORREGIDO)
  * ==========================================================================
  * 
  * Este archivo contiene la lógica necesaria para recibir los datos de la
@@ -23,20 +23,12 @@
  * 8. Configura los siguientes parámetros:
  *    - Descripción: Registro de Prospectos Duoc UC
  *    - Ejecutar como: Tú (tu correo electrónico de Google)
- *    - Quién tiene acceso: Cualquiera (esto es crucial para permitir peticiones AJAX desde la web)
+ *    - Quién tiene acceso: Cualquiera (esto es crucial para permitir peticiones AJAX públicas)
  * 9. Haz clic en "Implementar". Es posible que Google te solicite autorizar permisos. Haz clic en "Autorizar acceso" y acepta.
  * 10. Copia la "URL de la aplicación web" que termina en "/exec" y pégala en la variable `GOOGLE_SHEET_URL` en tu archivo `script.js`.
  */
 
 function doPost(e) {
-  // Configurar las cabeceras CORS para permitir peticiones desde cualquier origen
-  var headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Max-Age": "86400"
-  };
-  
   try {
     // Si la petición viene sin datos de postData, finalizar con error
     if (!e || !e.postData || !e.postData.contents) {
@@ -44,8 +36,7 @@ function doPost(e) {
         "status": "error",
         "message": "Petición vacía o mal estructurada"
       }))
-      .setMimeType(ContentService.MimeType.JSON)
-      .setHeaders(headers);
+      .setMimeType(ContentService.MimeType.JSON);
     }
     
     // Obtener la hoja de cálculo activa y su primera pestaña
@@ -68,34 +59,19 @@ function doPost(e) {
       data.consulta || ""
     ]);
     
-    // Retornar respuesta de éxito en formato JSON
+    // Retornar respuesta de éxito en formato JSON (Sin setHeaders, ya que lanza un TypeError en Apps Script)
     return ContentService.createTextOutput(JSON.stringify({
       "status": "success",
       "message": "Datos de matrícula guardados exitosamente"
     }))
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeaders(headers);
+    .setMimeType(ContentService.MimeType.JSON);
     
   } catch(error) {
-    // En caso de fallas, capturar el error y retornarlo estructurado
+    // En caso de fallas, retornar el error estructurado
     return ContentService.createTextOutput(JSON.stringify({
       "status": "error",
       "message": error.toString()
     }))
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeaders(headers);
+    .setMimeType(ContentService.MimeType.JSON);
   }
-}
-
-// Soporte para peticiones preflight OPTIONS (CORS)
-function doOptions(e) {
-  var headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Max-Age": "86400"
-  };
-  return ContentService.createTextOutput("")
-    .setMimeType(ContentService.MimeType.TEXT)
-    .setHeaders(headers);
 }
