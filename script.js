@@ -27,7 +27,7 @@
  */
 
 // Pega aquí la URL de tu aplicación web de Google Apps Script cuando esté lista.
-const GOOGLE_SHEET_URL = ''; 
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzxz8_J1qpPfJ9QORlCjxrP4IpUSaa2Cq9jrIN8osqtw820qlIH-AisgBVrTZmNmFzJ/exec'; 
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('duocForm');
